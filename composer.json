@@ -1,0 +1,26 @@
+{
+    "name": "locomotif/admin",
+    "description": "Admin gate for locomotif CMS.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Popa",
+            "email": "p.alexandruadrian@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Locomotif\\Admin\\AdminServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+       "psr-4": {
+           "Locomotif\\": ""
+        }
+    }
+}
