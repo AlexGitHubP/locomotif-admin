@@ -6,3 +6,5 @@ Logout from dashboard:
 <form id="logout-form" action="{{ route('admin/logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
+
+<a href="{{ route('admin/users') }}">View users list</a>
