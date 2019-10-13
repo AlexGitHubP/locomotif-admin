@@ -18,6 +18,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->app['router']->aliasMiddleware('dashboardgate', 'Locomotif\Admin\Middleware\RedirectIfAuth');
         $this->app->make('Locomotif\Admin\Controller\AdminController');
         $this->app->make('Locomotif\Admin\Controller\LoginController');
+        $this->app->make('Locomotif\Admin\Controller\UsersController');
     }
 
     /**
