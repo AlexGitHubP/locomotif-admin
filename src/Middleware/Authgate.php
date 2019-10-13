@@ -2,24 +2,31 @@
 
 namespace Locomotif\Admin\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as LocomotifLoginMiddleware;
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class Authgate extends LocomotifLoginMiddleware
+class Authgate
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param  string|null  $guard
      * @return mixed
      */
 
-
-    protected function redirectTo($request)
+    //redirect to login if user not authenticated. No gate used. 
+    public function handle($request, Closure $next, $guard = null)
     {
-        if (! $request->expectsJson()) {
-            return route('admin/login');
+        
+        if (!Auth::check()) {
+            if (!$request->expectsJson()) {
+                return redirect('/admin/login');
+            }
         }
+
+        return $next($request);
+
     }
 }
