@@ -12,6 +12,6 @@ class AdminController extends Controller
         $this->middleware('authgate');
     }
     public function index(){
-    	return view('admin::list');
+    	return view('admin::dashboard');
     }
 }
