@@ -79,10 +79,16 @@ class UsersController extends Controller
      */
     public function update(Request $request, Users $user)
     {
+     
         $user->name = $request->name;
-        $user->email = $request->email;
-        
-        $user->password = Hash::make($request->password);
+        $user->email = $request->email; 
+        //try to do this with 'laravel code'
+        if ($request->password==NULL) {
+            array_filter($request->all());        
+        }
+        else{
+            $user->password = Hash::make($request->password);    
+        }
         $user->save();
         $request->session()->flash('message', 'Successfully modified the user!');
         return redirect('/admin/users');
