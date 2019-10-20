@@ -29,9 +29,11 @@ class AdminServiceProvider extends ServiceProvider
     public function boot()
     {
         
-        //$this->loadMigrationsFrom(__DIR__.'/Database/Migrations/');
-        $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/views/', 'admin');
+        $this->loadRoutesFrom(__DIR__.'/Routes/web.php');   
+        $this->loadViewsFrom(resource_path('views/locomotif/admin'), 'admin');
+        $this->publishes([
+            __DIR__.'/views/' => resource_path('views/locomotif/admin'),
+        ]);
         
     }
 }
