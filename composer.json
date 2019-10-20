@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "locomotif/testimonials": "dev-master"
+    },
     "extra": {
         "laravel": {
             "providers": [
