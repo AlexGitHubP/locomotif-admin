@@ -1,3 +1,6 @@
+@extends('admin::header')
+@section('title', 'Edit user')
+@section('content')
 <a href="/admin/users">Back to users list</a>
 
 <p>Edit user: {{$user->name}}</p>
@@ -24,3 +27,4 @@
 </form>
 
 
+@endsection

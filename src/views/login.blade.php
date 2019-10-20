@@ -1,6 +1,9 @@
+@extends('admin::header')
+
+@section('title', 'Locomotif Login')
+
+@section('content')
 <p>This is the admin login page</p>
-
-
 
 <div class="login-wrapper">
     <form  method="POST" action="{{ route('admin/login') }}" class="login-form">
@@ -45,3 +48,4 @@
     </form>
    
 </div>
+@endsection
