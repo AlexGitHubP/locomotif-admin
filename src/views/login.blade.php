@@ -1,4 +1,4 @@
-@extends('admin::header')
+@extends('admin::inc/header')
 
 @section('title', 'Locomotif Login')
 
