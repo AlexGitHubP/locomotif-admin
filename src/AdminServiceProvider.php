@@ -34,6 +34,9 @@ class AdminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/views/' => resource_path('views/locomotif/admin'),
         ]);
+         $this->publishes([
+            __DIR__.'/assets/' => base_path('public/backend/locomotif'),
+        ]);
         
     }
 }
