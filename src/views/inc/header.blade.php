@@ -6,8 +6,9 @@
 </head>
 <body>
 
-@extends('admin::menu')
+
 @yield('content')
+
 
 </body>
 </html>

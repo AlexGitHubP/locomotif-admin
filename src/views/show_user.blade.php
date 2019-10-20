@@ -1,9 +1,12 @@
-@extends('admin::header')
+@extends('admin::inc/header')
 @section('title', 'User ')
+@include('admin::inc/menu')
+
 @section('content')
-<p>This is user show blade</p>
-
-<p>User is {{$user->name}}</p>
-
-<a href="/admin/users">Go bec</a>
+	<div class="container">
+		<div class="cms-body">
+			<p>This is user show blade</p>
+			<p>User is {{$user->name}}</p>
+		</div>
+	</div>
 @endsection
