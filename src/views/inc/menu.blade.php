@@ -6,6 +6,9 @@
 		<div class="main-menu">
 			<ul class="menu-dashboard">
 				<li>
+					<a href="/admin/sliders">Sliders</a>
+				</li>
+				<li>
 					<a href="/admin/testimonials">Testimonials</a>
 				</li>
 				<li>
