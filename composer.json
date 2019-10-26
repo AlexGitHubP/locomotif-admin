@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "locomotif/testimonials": "dev-master"
+        "locomotif/testimonials": "dev-master",
+        "locomotif/sliders": "dev-master"
     },
     "extra": {
         "laravel": {
