@@ -10,6 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "locomotif/testimonials": "dev-master",
         "locomotif/sliders": "dev-master"
