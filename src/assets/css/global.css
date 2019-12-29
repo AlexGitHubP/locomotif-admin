@@ -50,6 +50,52 @@ table {
 *{
 	box-sizing: border-box;
 }
+@font-face {
+    font-family: 'yantramanavbold';
+    src: url('../fonts/yantramanav-bold-webfont.woff2') format('woff2'),
+         url('../fonts/yantramanav-bold-webfont.woff') format('woff'),
+         url('../fonts/yantramanav-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'yantramanavlight';
+    src: url('../fonts/yantramanav-light-webfont.woff2') format('woff2'),
+         url('../fonts/yantramanav-light-webfont.woff') format('woff'),
+         url('../fonts/yantramanav-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'yantramanavmedium';
+    src: url('../fonts/yantramanav-medium-webfont.woff2') format('woff2'),
+         url('../fonts/yantramanav-medium-webfont.woff') format('woff'),
+         url('../fonts/yantramanav-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'yantramanavregular';
+    src: url('../fonts/yantramanav-regular-webfont.woff2') format('woff2'),
+         url('../fonts/yantramanav-regular-webfont.woff') format('woff'),
+         url('../fonts/yantramanav-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html, body{
+	font-family: 'yantramanavregular';
+	font-size: 16px;
+	line-height: 20px;
+	color: #000000;
+}
 /**** MISC ****/
 .container{
 	width: 93.75VW;
