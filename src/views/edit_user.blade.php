@@ -10,7 +10,7 @@
           {{ method_field('PUT') }}
           @csrf
       	<div class="form-group">
-      		<label for="name">Name</label>
+      		<label for="name">Namess</label>
       		<input type="text" class="form-control" id="name"  name="name" value="{{$user->name}}">
       	</div>
 
