@@ -22,4 +22,9 @@ $(document).ready(function(){
       checkInput();
     }, 500)
     
+    $('body').on('click', '.errors-mask-holder-close', function(e){
+        e.preventDefault();
+        $(this).parent().parent().fadeOut()
+    })
+    
 })
