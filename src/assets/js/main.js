@@ -26,5 +26,26 @@ $(document).ready(function(){
         e.preventDefault();
         $(this).parent().parent().fadeOut()
     })
+
+    //block scope
+    {
+        let toggleMenu = false;
+        let leftMenu = new TimelineMax({ paused: true });
+            leftMenu.addLabel('concurrent')
+            leftMenu.fromTo('.flex-dashboard-left', 0.4, {width:'12%'}, {width:'0'}, 'concurrent')
+            leftMenu.fromTo('.flex-dashboard-right', 0.4, {width:'88%'}, {width:'99%'}, 'concurrent') //left side has a border of 1px
+
+            $('body').on('click', '.cms-menu-hold-trigger', function(e){
+                e.preventDefault();
+                toggleMenu = !toggleMenu
+                if(toggleMenu){
+                    leftMenu.play();
+                }else{
+                    leftMenu.reverse();
+                }
+            })
+    }
+    
+    
     
 })
