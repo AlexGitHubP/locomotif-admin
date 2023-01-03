@@ -309,7 +309,7 @@ select:-webkit-autofill:focus {
 /**** MENU ****/
 .cms-logo{
 	display: block;
-    min-height: 4.54vw;
+    min-height: 4.34vw;
     padding: 1.3888888888888888VW 1.3888888888888888VW;
     border-bottom: 2px solid var(--border-color);
 }
