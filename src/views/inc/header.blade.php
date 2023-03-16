@@ -10,8 +10,21 @@
 </head>
 <body>
 
-
+@if (isset($login_page) && $login_page)
 @yield('content')
+@else
+<div class='flex-dashboard'>
+	
+	<div class='flex-dashboard-left'>
+		@include('admin::inc/left-menu')
+	</div><!--flex-dashboard-left-->
+
+	<div class='flex-dashboard-right'>
+		@include('admin::inc/cms-search')
+		@yield('content')
+	</div><!--flex-dashboard-right-->
+</div><!--flex-dashboard-->
+@endif
 
 <script src="{{ url('backend/locomotif/js/main.js') }}"></script>
 </body>
