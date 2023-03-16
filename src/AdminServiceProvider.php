@@ -30,7 +30,8 @@ class AdminServiceProvider extends ServiceProvider
     {
         
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');   
-        $this->loadViewsFrom(resource_path('views/locomotif/admin'), 'admin');
+        //$this->loadViewsFrom(resource_path('views/locomotif/admin'), 'admin');
+        $this->loadViewsFrom(__DIR__.'/views', 'admin');
         $this->publishes([
             __DIR__.'/views/' => resource_path('views/locomotif/admin'),
         ]);
