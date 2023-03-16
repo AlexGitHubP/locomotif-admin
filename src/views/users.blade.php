@@ -1,6 +1,5 @@
 @extends('admin::inc/header')
 @section('title', 'Users list')
-@include('admin::inc/menu')
 
 @section('content')
 	<div class="container">

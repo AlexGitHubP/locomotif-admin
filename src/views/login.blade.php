@@ -6,7 +6,7 @@
 
 <div class="login-area">
     <div class="login-holder">
-    <img src="{{ url('backend/locomotif/img/logo.png') }}" class="locomotif-logo">
+    <img src="{{ url('backend/locomotif/img/masara_logo.svg') }}" class="locomotif-logo">
         <form id="login-form" method="POST" action="{{ route('admin/login') }}" autocomplete="off" >
             @csrf
             <div class="login-input-holder">
