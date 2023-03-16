@@ -2,7 +2,6 @@
 @section('title', 'Edit user')
 @section('content')
 
-@include('admin::inc/menu')
   <div class="container"> 
     <div class="cms-body">
       <p>Edit user: {{$user->name}}</p>
