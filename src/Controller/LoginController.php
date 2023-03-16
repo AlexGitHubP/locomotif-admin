@@ -40,7 +40,8 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(){
-        return view('admin::login');
+        $login_page = true;
+        return view('admin::login')->with('login_page', $login_page);
     }
 
     /**
