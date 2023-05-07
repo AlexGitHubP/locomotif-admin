@@ -21,6 +21,9 @@
     "autoload": {
        "psr-4": {
            "Locomotif\\Admin\\": "src/"
-        }
+        },
+        "files": [
+            "vendor/locomotif/admin/src/Helpers/GlobalCMSHelper.php"
+        ]
     }
 }
