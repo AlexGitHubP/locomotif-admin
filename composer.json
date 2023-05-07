@@ -10,9 +10,6 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "locomotif/admin": "^1.0"
-    },
     "prefer-stable": true,
     "extra": {
         "laravel": {
