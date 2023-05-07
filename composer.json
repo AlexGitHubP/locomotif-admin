@@ -23,7 +23,7 @@
            "Locomotif\\Admin\\": "src/"
         },
         "files": [
-            "src/Helpers/GlobalCMSHelper.php"
+            "/src/Helpers/GlobalCMSHelper.php"
         ]
     }
 }
