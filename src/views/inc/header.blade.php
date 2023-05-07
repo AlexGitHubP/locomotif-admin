@@ -3,9 +3,12 @@
 <head>
 	<title>@yield('title')</title>
 	<script src="{{ url('backend/locomotif/js/jquery-3.4.1.min.js') }}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 	
-
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('backend/locomotif/css/tagcomplete.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('backend/locomotif/css/filter_multi_select.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('backend/locomotif/css/dropzone.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url('backend/locomotif/css/global.css') }}">
 </head>
 <body>
@@ -26,6 +29,11 @@
 </div><!--flex-dashboard-->
 @endif
 
-<script src="{{ url('backend/locomotif/js/main.js') }}"></script>
+@include('admin::inc/snackbar')
+
+<script src="{{ url('backend/locomotif/js/tagcomplete.min.js') }}"></script>
+<script src="{{ url('backend/locomotif/js/filter-multi-select-bundle.min.js') }}"></script>
+<script src="{{ url('backend/locomotif/js/dropzone.js') }}"></script>
+<script type='module' src="{{ url('backend/locomotif/js/main.js') }}"></script>
 </body>
 </html>
