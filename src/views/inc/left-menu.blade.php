@@ -81,6 +81,43 @@
 					</li>
 				</ul>
 			</li>
+			<li class='hasChildren'>
+				<a href="/admin/blog">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.1 16" class='landscapeIcon'>
+						<path d="M5.2,2H11a.75.75,0,0,1,.53.22l4.35,4.35a.75.75,0,0,1,.22.53v8.7A2.222,2.222,0,0,1,13.9,18H5.2A2.222,2.222,0,0,1,3,15.8V4.2A2.222,2.222,0,0,1,5.2,2Zm0,1.5a.721.721,0,0,0-.7.7V15.8a.721.721,0,0,0,.7.7h8.7a.721.721,0,0,0,.7-.7V7.85H11a.75.75,0,0,1-.75-.75V3.5Zm6.55,1.061L13.539,6.35H11.75ZM5.9,7.825a.75.75,0,0,1,.75-.75H8.1a.75.75,0,0,1,0,1.5H6.65A.75.75,0,0,1,5.9,7.825Zm.75,2.15a.75.75,0,1,0,0,1.5h5.8a.75.75,0,1,0,0-1.5Zm0,2.9a.75.75,0,0,0,0,1.5h5.8a.75.75,0,0,0,0-1.5Z" transform="translate(-3 -2)" fill="#303D4D" fill-rule="evenodd"/>
+					</svg>			  
+					Blog		
+					<svg class='menuChevron' viewBox="0 0 6.811 11.5">
+						<path d="M7.47,4.47a.75.75,0,0,1,1.061,0L14.061,10,8.53,15.53A.75.75,0,0,1,7.47,14.47L11.939,10,7.47,5.53A.75.75,0,0,1,7.47,4.47Z" transform="translate(-7.25 -4.25)" fill="#303D4D" fill-rule="evenodd"/>
+					</svg>		
+				</a>
+				<ul>
+					<li>
+						<a href="/admin/blog">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>
+							Articole
+						</a>
+					</li>
+					<li>
+						<a href="/admin/blogCategories">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>
+							Categorii
+						</a>
+					</li>
+					<li>
+						<a href="/admin/blogSubcategories">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>
+							Subcategorii
+						</a>
+					</li>
+				</ul>
+			</li>
 			<li>
 				<a href="/admin/media">
 					<svg viewBox="0 0 16 16">

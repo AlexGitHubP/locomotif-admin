@@ -634,6 +634,13 @@ select:-webkit-autofill:focus {
 	width: 1.1111111111111112VW;
 	margin-right: 0.6234vw;
 }
+.cms-menu-main > ul > li > a > svg.landscapeIcon{
+	position: relative;
+	display: inline-block;
+	width: 0.8234vw;
+	margin-right: 0.6234vw;
+    margin-left: 0.111vw;
+}
 .cms-menu-main > ul > li > a:hover{
 	background: #0593ff2e;
 	transition: 0.3s ease background-color;
