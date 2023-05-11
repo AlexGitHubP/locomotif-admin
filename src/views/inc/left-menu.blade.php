@@ -119,6 +119,15 @@
 				</ul>
 			</li>
 			<li>
+				<a href="/admin/designers">
+					<svg data-name="User [Fill]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16">
+						<path data-name="Path 36" d="M13.769,5.733A3.769,3.769,0,1,1,10,2,3.751,3.751,0,0,1,13.769,5.733Z" transform="translate(-3 -2)" fill="#303D4D"/>
+						<path data-name="Path 37" d="M3,16.222a5.58,5.58,0,0,1,5.463-5.689h3.073A5.58,5.58,0,0,1,17,16.222,1.744,1.744,0,0,1,15.293,18H4.707A1.744,1.744,0,0,1,3,16.222Z" transform="translate(-3 -2)" fill="#303D4D"/>
+					</svg>	  
+					Designeri
+				</a>
+			</li>  
+			<li>
 				<a href="/admin/media">
 					<svg viewBox="0 0 16 16">
 						<g id="Image">
