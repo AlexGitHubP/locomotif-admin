@@ -18,13 +18,49 @@
 					Dashboard
 				</a>
 			</li>
-			<li>
+			<li class='hasChildren'>
 				<a href="/admin/users">
 					<svg viewBox="0 0 14 16">
 						<path d="M12.269,5.733A2.27,2.27,0,1,1,10,3.5,2.251,2.251,0,0,1,12.269,5.733Zm1.5,0A3.769,3.769,0,1,1,10,2,3.751,3.751,0,0,1,13.769,5.733Zm-5.306,6.3h3.073A4.081,4.081,0,0,1,15.5,16.222a.311.311,0,0,1-.082.218.17.17,0,0,1-.125.06H4.707a.17.17,0,0,1-.125-.06.311.311,0,0,1-.082-.218A4.081,4.081,0,0,1,8.463,12.033ZM3,16.222a5.58,5.58,0,0,1,5.463-5.689h3.073A5.58,5.58,0,0,1,17,16.222,1.744,1.744,0,0,1,15.293,18H4.707A1.744,1.744,0,0,1,3,16.222Z" transform="translate(-3 -2)" fill="#303D4D" fill-rule="evenodd"/>
-					  </svg>								
-					Users
+					</svg>								
+					Conturi
+					<svg class='menuChevron' viewBox="0 0 6.811 11.5">
+						<path d="M7.47,4.47a.75.75,0,0,1,1.061,0L14.061,10,8.53,15.53A.75.75,0,0,1,7.47,14.47L11.939,10,7.47,5.53A.75.75,0,0,1,7.47,4.47Z" transform="translate(-7.25 -4.25)" fill="#303D4D" fill-rule="evenodd"/>
+					</svg>	
 				</a>
+				<ul>
+					<li>
+						<a href="/admin/users">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>	  
+							Vezi toate
+						</a>
+					<li>
+						<a href="/admin/users">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>	  
+							Conturi CMS
+						</a>
+					</li>  
+					<li>
+						<a href="/admin/designers">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>	  
+							Designeri
+						</a>
+					</li>  
+					<li>
+						<a href="/admin/clients">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>	  
+							Clienti
+						</a>
+					</li>  
+				</ul>
 			</li>
 			<li class='hasChildren'>
 				<a href="/admin/products">
@@ -118,15 +154,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
-				<a href="/admin/designers">
-					<svg data-name="User [Fill]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16">
-						<path data-name="Path 36" d="M13.769,5.733A3.769,3.769,0,1,1,10,2,3.751,3.751,0,0,1,13.769,5.733Z" transform="translate(-3 -2)" fill="#303D4D"/>
-						<path data-name="Path 37" d="M3,16.222a5.58,5.58,0,0,1,5.463-5.689h3.073A5.58,5.58,0,0,1,17,16.222,1.744,1.744,0,0,1,15.293,18H4.707A1.744,1.744,0,0,1,3,16.222Z" transform="translate(-3 -2)" fill="#303D4D"/>
-					</svg>	  
-					Designeri
-				</a>
-			</li>  
+			
 			<li>
 				<a href="/admin/media">
 					<svg viewBox="0 0 16 16">
