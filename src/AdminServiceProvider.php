@@ -31,6 +31,8 @@ class AdminServiceProvider extends ServiceProvider
         
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
         $this->loadViewsFrom(__DIR__.'/views', 'admin');
+        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+        
         $this->publishes([
             __DIR__.'/views/' => resource_path('views/locomotif/admin'),
         ]);
