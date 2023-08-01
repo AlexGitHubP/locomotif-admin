@@ -581,14 +581,68 @@ function deleteMedia(mediaID){
             }
         })
 }
+function sortableImages(){
+    var sortableImages = document.getElementById('sortableImages');
+    var sortable = Sortable.create(sortableImages, {
+        animation: 150,
+        dataIdAttr: 'data-order',
+        easing: "cubic-bezier(1, 0, 0, 1)",
+        handler: '.handler',
+        onEnd: (evt) => {
+            const items = Array.from(sortableImages.children);
+            items.forEach((item, index) => {
+                item.setAttribute('data-order', index + 1);
+            });
 
+            items.forEach(item => {
+                let mediaID = $(item).attr('data-id');
+                let ordering = $(item).attr('data-order');
+                let formData = new FormData();
+                    formData.append('mediaID', mediaID)
+                    formData.append('ordering', ordering)
+
+                $.ajax({
+                    method:'POST',
+                    dataType:'json',
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    processData: false,
+                    data:formData,
+                    cache: false,
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    url:'/admin/media/ajaxReorder',
+                }).done(function(response){
+                    console.log(response)
+                    if(response.success==true){
+                        
+                    }else{
+                        //alert('A intervenit o eroare la reordonarea imaginilor. Va rugam incercati din nou.')
+                    }
+                }).fail(function(response){
+                    alert('A intervenit o eroare. Va rugam incercati din nou.')
+                })
+            });
+        }
+    });
+}
+
+function initTinyMce(){
+    
+    tinymce.init({
+        selector: 'textarea.tinymce',
+        keep_styles: false
+    });
+}
 
 $(document).ready(function(){
     ($('.buildAttributeIdentifier').length>0) ? buildAttributeIdentifier() : '';
     ($('.builNiceUrl').length>0) ? buildNiceUrl() : '';
     ($('.tagElement').length>0) ? buildTags() : '';
     ($('.dropzoneArea').length>0) ? initDropzone('.dropzoneArea') : '';
+    ($('.sortableImages').length>0) ? sortableImages() : '';
+    ($('.tinymce').length>0) ? initTinyMce() : '';
     
+
     setTimeout(function(){
       checkInput();
     }, 500)
@@ -687,6 +741,37 @@ $(document).ready(function(){
             }
         }
     })
+
+    $('input[type="radio"][name="main_subcategory"]').change(function() {
+        if ($(this).is(':checked')) {
+          // The radio input is checked
+          var subcategID = $(this).val();
+              subcategID = parseInt(subcategID);
+          var pid = $('#pid').val();
+              pid = parseInt(pid);
+
+          $.ajax({
+                method:'POST',
+                dataType:'json',
+                data:{
+                    subcategID:subcategID,
+                    pid:pid
+                },
+                cache: false,
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url:'/admin/productsSubcategories/setMain',
+            }).done(function(response){
+                showSnackbar(response.type, response.message, 2000)
+            }).fail(function(response){
+                showSnackbar(response.type, response.message, 4000)
+            })
+          
+          // Perform any additional actions or logic here
+          
+        } else {
+          // The radio input is unchecked
+        }
+      });
     
     
 })

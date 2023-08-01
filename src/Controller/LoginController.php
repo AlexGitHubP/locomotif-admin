@@ -5,6 +5,8 @@ namespace Locomotif\Admin\Controller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Locomotif\Admin\Models\Users;
 
 
 class LoginController extends Controller
@@ -36,7 +38,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('dashboardgate')->except('logout');
+        $this->middleware('dashboardgate')->except(['logout', 'showLoginForm']);
     }
 
     public function showLoginForm(){
@@ -52,11 +54,8 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-
-        return $this->loggedOut($request) ?: redirect('/admin/login');
+        Auth::logout();
+        return  redirect('/admin/login');
     }
 
     

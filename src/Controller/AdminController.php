@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('authgate');
+        $this->middleware(['authgate:administrator']);
     }
     public function index(){
     	return view('admin::dashboard');

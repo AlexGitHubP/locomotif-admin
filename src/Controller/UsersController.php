@@ -12,7 +12,7 @@ class UsersController extends Controller
 
 	public function __construct()
     {
-        $this->middleware('authgate');
+        $this->middleware(['authgate:administrator']);
     }
 
     /**

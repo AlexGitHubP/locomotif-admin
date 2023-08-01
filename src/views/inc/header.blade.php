@@ -34,6 +34,8 @@
 <script src="{{ url('backend/locomotif/js/tagcomplete.min.js') }}"></script>
 <script src="{{ url('backend/locomotif/js/filter-multi-select-bundle.min.js') }}"></script>
 <script src="{{ url('backend/locomotif/js/dropzone.js') }}"></script>
+<script src="{{ url('backend/locomotif/js/sortable.min.js') }}"></script>
+<script src="{{ url('backend/locomotif/js/tinymce/tinymce.min.js') }}"></script>
 <script type='module' src="{{ url('backend/locomotif/js/main.js') }}"></script>
 </body>
 </html>

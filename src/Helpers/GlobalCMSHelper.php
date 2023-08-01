@@ -1,6 +1,73 @@
 <?php
 use Carbon\Carbon;
 
+if (!function_exists('redirectArea')) {
+    function redirectArea($user){
+        
+        $role = (isset($user->roles->pluck('name')[0]) && !empty($user->roles->pluck('name')[0])) ? $user->roles->pluck('name')[0] : '';
+        if(!empty($role)){   
+            switch ($role) {
+                case 'client':
+                    $endpoint = '/cont-client/dashboard.html';
+                break;
+
+                case 'designer':
+                    $endpoint = '/cont-designer/dashboard.html';
+                break;
+
+                case 'administrator':
+                    $endpoint = '/admin';
+                break;
+                
+                default:
+                    $endpoint = '/login.html';
+                break;
+            }
+        }else{
+            Auth::logout();
+            $endpoint = '/';
+        }
+        
+        return $endpoint;
+    }
+}
+if (!function_exists('mapCharacters')) {
+    function mapCharacters($inputString) {
+        $mapping = [
+            'ș' => 's',
+            'ț' => 't',
+            'ă' => 'a',
+            'î' => 'i',
+            'â' => 'a',
+            'Ș' => 'S',
+            'Ț' => 'T',
+            'Ă' => 'A',
+            'Î' => 'I',
+            'Â' => 'A'
+        ];
+
+        $returnClean = preg_replace_callback('/[^\x00-\x7F]/u', function ($matches) use ($mapping) {
+            $char = $matches[0];
+            return $mapping[$char] ?? $char;
+        }, $inputString);
+
+        return $returnClean;
+    }
+}
+
+if (!function_exists('buildUrl')) {
+
+    function buildUrl($inputValue){
+
+        $inputValue = preg_replace('/\s+/u', '-', $inputValue);
+        $inputValue = strtolower($inputValue);
+        $inputValue = mapCharacters($inputValue);
+        $inputValue = preg_replace('/[^a-zA-Z0-9-]/', '', $inputValue);
+        
+        return $inputValue;
+    }
+}
+
 if (!function_exists('mapStatus')) {
 
     function mapStatus($status){
@@ -25,6 +92,16 @@ if (!function_exists('getOrdering')) {
         return $nextNumber;
     }
 }
+if (!function_exists('getOrderingFiltered')) {
+    function getOrderingFiltered($table, $orderColumn='ordering', $column, $value){
+        $largestNumber = DB::table($table)->where($column, $value)->max($orderColumn);
+        
+        $nextNumber = $largestNumber + 1;
+        
+        return $nextNumber;
+    }
+}
+
 
 if (!function_exists('setUserRole')) {
     function setUserRole($role, $userID){
@@ -46,7 +123,12 @@ if (!function_exists('setUserRole')) {
                 'updated_at' => $now,
             ]);
         }else{
-            echo '<pre>';print_r('Rolul de '.$role.' nu exista in baza de date');exit;
+            $response = array(
+                'success' => false,
+                'type'    => 'display',
+                'message' => array('A intervenit o eroare la creearea contului. Te rugăm încearcă din nou.')
+            );
+            return response()->json($response);
         }
     }
 }
