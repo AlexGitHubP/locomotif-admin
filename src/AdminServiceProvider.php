@@ -19,6 +19,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->app->make('Locomotif\Admin\Controller\AdminController');
         $this->app->make('Locomotif\Admin\Controller\LoginController');
         $this->app->make('Locomotif\Admin\Controller\UsersController');
+        $this->app->make('Locomotif\Admin\Controller\AccountsController');
     }
 
     /**
@@ -30,7 +31,13 @@ class AdminServiceProvider extends ServiceProvider
     {
         
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/views', 'admin');
+        
+        $this->loadViewsFrom(__DIR__.'/views',           'admin');
+        $this->loadViewsFrom(__DIR__.'/views/users',     'users');
+        $this->loadViewsFrom(__DIR__.'/views/accounts',  'accounts');
+        $this->loadViewsFrom(__DIR__.'/views/designers', 'designers');
+        $this->loadViewsFrom(__DIR__.'/views/clients',   'clients');
+
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         
         $this->publishes([

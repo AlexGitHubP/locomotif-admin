@@ -30,22 +30,14 @@
 				</a>
 				<ul>
 					<li>
-						<a href="/admin/users">
+						<a href="/admin/accounts">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
 								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
 							</svg>	  
 							Vezi toate
 						</a>
 					<li>
-						<a href="/admin/users">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
-								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
-							</svg>	  
-							Conturi CMS
-						</a>
-					</li>  
-					<li>
-						<a href="/admin/designers">
+						<a href="/admin/accounts/designers">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
 								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
 							</svg>	  
@@ -53,11 +45,19 @@
 						</a>
 					</li>  
 					<li>
-						<a href="/admin/clients">
+						<a href="/admin/accounts/clients">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
 								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
 							</svg>	  
 							Clienti
+						</a>
+					</li>  
+					<li>
+						<a href="/admin/users">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+								<circle cx="4" cy="4" r="4" fill="#303D4D"/>
+							</svg>	  
+							Conturi CMS
 						</a>
 					</li>  
 				</ul>

@@ -22,8 +22,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Users::all();
-        return view('admin::users')->with('users', $users);
+        $items = Users::all();
+        return view('users::list')->with('items', $items);
     }
 
     /**
@@ -33,7 +33,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin::create_user');
+        return view('users::create_user');
     }
 
     /**
@@ -56,7 +56,7 @@ class UsersController extends Controller
      */
     public function show(Users $user)
     {
-       return view('admin::show_user')->with('user', $user);
+       return view('users::show_user')->with('user', $user);
     }
 
     /**
@@ -67,7 +67,7 @@ class UsersController extends Controller
      */
     public function edit(Users $user)
     {
-        return view('admin::edit_user')->with('user', $user);
+        return view('users::edit_user')->with('user', $user);
     }
 
     /**

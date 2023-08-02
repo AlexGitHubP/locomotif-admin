@@ -102,16 +102,23 @@ if (!function_exists('getOrderingFiltered')) {
     }
 }
 
-
+if (!function_exists('checkRoleExists')){
+    function checkRoleExists($role){
+        $roleExists = DB::table('roles')->where('name', $role)->exists();
+        $roleExists = ($roleExists) ? true : false;
+        return $roleExists;
+    }
+}
 if (!function_exists('setUserRole')) {
     function setUserRole($role, $userID){
         //check if role exists
-        $roleExists = DB::table('roles')->where('name', $role)->exists(); 
+        $roleExists = DB::table('roles')->where('name', $role)->exists();
+        
         if($roleExists){
             $role_id = DB::table('roles')->where('name', $role)->first(); 
             $role_id = $role_id->id;
             $now = Carbon::now()->format('Y-m-d H:i:s');
-
+            
             DB::table('role_user')->where([
                 ['user_id', '=', $userID]
             ])->delete();

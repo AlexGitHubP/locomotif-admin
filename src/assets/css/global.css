@@ -1594,10 +1594,10 @@ a.dashboard-username span img{
 .listing-element p{
 	display: block;
     font-weight: bold;
-    margin-right: 0.8234vw;
     color: var(--black);
     font-size: var(--black);
     line-height: var(--label-line-height);
+	word-wrap: break-word;
 }
 .listing-element p a{
 	color: var(--blue);
