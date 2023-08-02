@@ -39,6 +39,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views/clients',   'clients');
 
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+        //$this->call(RolesTableSeeder::class);
         
         $this->publishes([
             __DIR__.'/views/' => resource_path('views/locomotif/admin'),
