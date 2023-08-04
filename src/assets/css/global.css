@@ -1162,6 +1162,9 @@ a.dashboard-username span img{
 	width: 100%;
 	padding: 0 0;
 }
+.flex-inputs.flexInLine .input-element{
+	flex: 1;
+}
 
 .input-element label, .filter-hold label{
 	display: block;
