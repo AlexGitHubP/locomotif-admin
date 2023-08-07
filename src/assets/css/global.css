@@ -114,19 +114,18 @@ table {
 	--menu-background:grey;
 	--modal-background:#1a1a1a3b;
 	--border-color:#EAEDF0;
-	--label-font-size:       calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--label-line-height:     calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--font-size-small-btn:   calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--label-line-height:     calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--input-font-size:       calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--input-line-height:     calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--base-font-size:        calc( 14px + ( 16 - 14 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--base-line-height:      calc( 18px + ( 20 - 18 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--menu-font-size:        calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-    --menu-line-height:      calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--h2-font-size:          calc( 16px + ( 20 - 16 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--h2-line-height:        calc( 18px + ( 22 - 18 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
-	--label-close-font-size: calc( 10px + ( 12 - 10 ) * ( 100vw - 480px ) / ( 1440 - 480 ) );
+	--label-font-size:       calc( 11px + ( 16 - 11 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--label-line-height:     calc( 11px + ( 16 - 11 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--font-size-small-btn:   calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--input-font-size:       calc( 11px + ( 16 - 11 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--input-line-height:     calc( 11px + ( 16 - 11 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--base-font-size:        calc( 11px + ( 16 - 11 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--base-line-height:      calc( 16px + ( 20 - 16 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--menu-font-size:        calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+    --menu-line-height:      calc( 12px + ( 14 - 12 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--h2-font-size:          calc( 16px + ( 20 - 16 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--h2-line-height:        calc( 18px + ( 22 - 18 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
+	--label-close-font-size: calc( 10px + ( 12 - 10 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
 	--basicTransition: 0.3s ease all;
 	
 }
@@ -1594,12 +1593,23 @@ a.dashboard-username span img{
 .flex1{
 	flex: 1;
 }
+
+.listing-element .listing-box{
+	text-align: center;
+}
+.listing-element .listing-box:first-of-type{
+	flex: 0.4;
+}
+.listing-element .listing-box:last-of-type{
+	flex: 0.4;
+}
+
 .listing-element p{
 	display: block;
-    font-weight: bold;
+    font-weight: 400;
     color: var(--black);
-    font-size: var(--black);
-    line-height: var(--label-line-height);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
 	word-wrap: break-word;
 }
 .listing-element p a{
@@ -1633,6 +1643,7 @@ a.dashboard-username span img{
 }
 .listing-element.listing-header p{
     color: var(--base-color);
+	font-weight: bold;
 }
 .listing-element.lastElement{
 	border-bottom: 0;
