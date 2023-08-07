@@ -93,7 +93,7 @@ if (!function_exists('getOrdering')) {
     }
 }
 if (!function_exists('getOrderingFiltered')) {
-    function getOrderingFiltered($table, $orderColumn='ordering', $column, $value){
+    function getOrderingFiltered($table, $column, $value, $orderColumn='ordering'){
         $largestNumber = DB::table($table)->where($column, $value)->max($orderColumn);
         
         $nextNumber = $largestNumber + 1;
