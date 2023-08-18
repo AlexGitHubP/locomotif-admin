@@ -72,9 +72,33 @@ if (!function_exists('mapStatus')) {
 
     function mapStatus($status){
         $map = array(
-            'published' => 'Publicat',
-            'pending'   => 'În așteptare',
-            'hidden'    => 'Ascuns',
+            'published'                      => 'Publicat',
+            'pending'                        => 'În așteptare',
+            'hidden'                         => 'Ascuns',
+            'sentToShop'                     => 'Procesare',
+            'inTransition-sentToCarrier'     => 'Spre curier',
+            'inTransition-pickedUpByCarrier' => 'La curier',
+            'inTransition-sentFromCarrier'   => 'Tranzit',
+            'delivered'                      => 'Livrată',
+            'canceled'                       => 'Anulată',
+            'delayed'                        => 'Întârziere',
+            'contested'                      => 'Contestată',
+            'transactionRecieved'            => 'Înregistrată',
+            'transactionFirstHalfRecieved'   => 'Avans înregistrat',
+            'transactionSecondHalfRecieved'  => 'Factură finală generată',
+            'paymentFirstHalfConfirmed'      => 'Avans încasat',
+            'paymentAwaitAdditionalInfos'    => 'Fără detalii cont',
+            'paymentConfirmed'               => 'Plătită',
+            'paymentCollected'               => 'Încasată integral',
+            'processing'                     => 'În procesare',
+            'requiresPaymentMethod'          => 'Fără metodă de plată',
+            'paymentFailed'                  => 'Eroare/Anulată',
+            'fgo_sentHalf'                   => '50% generată și trimisă spre FGO',
+            'fgo_sent'                       => 'Generată și trimisă spre FGO',
+            'fgo_storno'                     => 'Storno',
+            'fgo_invoicedHalf'               => 'Factură încasată 50%',
+            'fgo_invoiced'                   => 'Factură încasată integral',
+            'fgo_error'                      => 'Eroare la înregistrare factură',
         );
         $status = str_replace(array_keys($map), array_values($map), $status);
         
@@ -137,6 +161,29 @@ if (!function_exists('setUserRole')) {
             );
             return response()->json($response);
         }
+    }
+}
+
+if (!function_exists('extractTVA')) {
+    function extractTVA($total, $tva, $tvaType){
+        $tva   = (double)$tva;
+        $total = (double)$total;
+
+        switch ($tvaType) {
+            case 'percent':
+                $tvaPrice = ($tva/100) * $total;
+                break;
+
+            case 'fixed':
+                $tvaPrice = $tva;
+                break;
+            
+            default:
+                $tvaPrice = ($tva/100) * $total;
+                break;
+        }
+
+        return $tvaPrice;
     }
 }
 
