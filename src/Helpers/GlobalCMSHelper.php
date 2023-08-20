@@ -99,6 +99,11 @@ if (!function_exists('mapStatus')) {
             'fgo_invoicedHalf'               => 'Factură încasată 50%',
             'fgo_invoiced'                   => 'Factură încasată integral',
             'fgo_error'                      => 'Eroare la înregistrare factură',
+            'uploaded'                       => 'Încărcată',
+            'notUploaded'                    => 'Nu este încărcată',
+            'inProcesare'                    => 'În procesare',
+            'inregistrata'                   => 'Înregistrată în sistem',
+            'incasata'                       => 'Încasată',
         );
         $status = str_replace(array_keys($map), array_values($map), $status);
         
@@ -184,6 +189,45 @@ if (!function_exists('extractTVA')) {
         }
 
         return $tvaPrice;
+    }
+}
+
+if (!function_exists('extractResellerPrice')) {
+    function extractResellerPrice($total, $fee, $type){
+        $fee   = (double)$fee;
+        $total = (double)$total;
+
+        switch ($type) {
+            case 'percent':
+                $price = ($fee/100) * $total;
+                break;
+
+            case 'fixed':
+                $price = $tva;
+                break;
+            
+            default:
+                $price = ($tva/100) * $total;
+                break;
+        }
+
+        return $price;
+    }
+}
+
+if (!function_exists('checkIfIsLastDayOfMonth')) {
+    function checkIfIsLastDayOfMonth(){
+            
+        $lastDayOfMonth = Carbon::now()->endOfMonth();
+        $today          = Carbon::now()->today();
+
+        $lastDayOfMonth = $lastDayOfMonth->format('Y-m-d');
+        $today          = $today->format('Y-m-d');
+
+        $isLastDay      = ($today==$lastDayOfMonth) ? true : false;
+        
+        return $isLastDay;
+        
     }
 }
 

@@ -127,7 +127,7 @@ table {
 	--h2-line-height:        calc( 18px + ( 22 - 18 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
 	--label-close-font-size: calc( 10px + ( 12 - 10 ) * ( 100vw - 480px ) / ( 1920 - 480 ) );
 	--basicTransition: 0.3s ease all;
-	
+	--baseBoxShaddow: 0px 0px 10px #00000021;
 }
 
 
@@ -207,7 +207,11 @@ html, body{
 .general-btn.with-icon{
 	padding: 0.5208333333333333VW 1.25VW 0.5208333333333333VW 1.25VW;
 }
-.general-btn.status-published, .general-btn.status-paymentConfirmed{
+.general-btn.status-published,
+.general-btn.status-paymentConfirmed,
+.general-btn.status-delivered,
+.general-btn.status-paymentCollected,
+.general-btn.status-paymentHalfConfirmed{
 	padding: 0.2608333333333333VW 0.95VW 0.2608333333333333VW 0.95VW;
 	border: 1px solid transparent;
 	color: var(--green-dark);
@@ -216,7 +220,11 @@ html, body{
 	line-height: var(--menu-font-size);
 	border-radius: 5px;
 }
-.general-btn.status-hidden{
+.general-btn.status-hidden,
+.general-btn.status-canceled,
+.general-btn.status-contested,
+.general-btn.status-delayed,
+.general-btn.status-paymentFailed{
 	padding: 0.2608333333333333VW 0.95VW 0.2608333333333333VW 0.95VW;
 	border: 1px solid transparent;
 	color: var(--red-dark);
@@ -225,7 +233,16 @@ html, body{
 	line-height: var(--menu-font-size);
 	border-radius: 5px;
 }
-.general-btn.status-pending, .general-btn.status-transactionRecieved{
+.general-btn.status-pending,
+.general-btn.status-transactionRecieved,
+.general-btn.status-inTransition-sentToCarrier,
+.general-btn.status-inTransition-pickedUpByCarrier,
+.general-btn.status-inTransition-sentFromCarrier,
+.general-btn.status-paymentAwaitAdditionalInfos,
+.general-btn.status-transactionRecieved,
+.general-btn.status-processing,
+.general-btn.status-requiresPaymentMethod,
+.general-btn.status-transactionFirstHalfRecieved{
 	padding: 0.2608333333333333VW 0.95VW 0.2608333333333333VW 0.95VW;
 	border: 1px solid transparent;
 	color: var(--yellow-dark);
@@ -234,7 +251,7 @@ html, body{
 	line-height: var(--menu-font-size);
 	border-radius: 5px;
 }
-.general-btn.status-in_review{
+.general-btn.status-in_review, .general-btn.status-sentToShop{
 	padding: 0.2608333333333333VW 0.95VW 0.2608333333333333VW 0.95VW;
 	border: 1px solid transparent;
 	color: var(--yellow-dark);
@@ -946,6 +963,22 @@ a.dashboard-username span img{
 	line-height: var(--label-line-height);
 }
 
+.orderDetailView .cms-body{
+	background: transparent;
+	padding: 0 0;
+}
+.orderDetailView .cms-body .perfect-flex-hold{
+	margin-left: 0;
+	margin-right: 0;
+	gap: 2.083333333333333VW;
+}
+.orderDetailView .cms-body .perfect-flex-hold .perfect-right, .orderDetailView .cms-body .perfect-flex-hold .perfect-left{
+	width: auto;
+	flex: 1;
+	background: var(--white);
+    padding: 2.083333333333333VW 2.083333333333333VW 2.083333333333333VW 2.083333333333333VW;
+	box-shadow: 0px 0px 10px #00000021;
+}
 .errors-mask{
 	position: fixed;
 	z-index: 100;
@@ -1001,6 +1034,22 @@ a.dashboard-username span img{
 	margin-bottom: 0;
 	color: var(--black);
 	margin-bottom: 1.2234vw;
+}
+.cms-body h4{
+	font-weight: bold;
+	font-size: var(--h2-font-size);
+	line-height: var(--h2-line-height);
+	margin-bottom: 0;
+	color: var(--blue);
+	margin-bottom: 1vw;
+}
+.cms-body h4.inside{
+	margin-top: 2.2234vw;	
+}
+.cms-body .ordered-items-hold h4{
+	padding-top: 2.083333333333333VW;
+	padding-left: 2.083333333333333VW;
+	margin-bottom: 2.083333333333333VW;
 }
 .cms-body h2{
 	margin-bottom: 2.6234vw;
@@ -1164,6 +1213,29 @@ a.dashboard-username span img{
 .flex-inputs.flexInLine .input-element{
 	flex: 1;
 }
+.flex-inputs.viewFlex{
+	display: block;
+	flex-wrap: wrap;
+	margin-left: 0;
+	margin-right: 0;
+}
+.flex-inputs.viewFlex .input-element{
+	width: 100%;
+	padding: 0;
+	margin-bottom: 0.88374vw;
+}
+.flex-inputs.viewFlex .input-element p{
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.flex-inputs.viewFlex .input-element p span{
+	font-weight: 400;
+}
+.flex-inputs.viewFlex .input-element p a{
+	color: var(--blue);
+	text-decoration: none;
+	font-weight: bold;
+}
 
 .input-element label, .filter-hold label{
 	display: block;
@@ -1222,6 +1294,11 @@ a.dashboard-username span img{
 }
 .input-element textarea{
 	height: 12.234vw;
+	resize: none;
+}
+
+.orderDetailView .input-element textarea{
+	height: 6.234vw;
 	resize: none;
 }
 .flex-inputs .input-element.half.textarea{
@@ -1616,6 +1693,14 @@ a.dashboard-username span img{
 	color: var(--blue);
 	text-decoration: none;
 }
+.orderDetailView .listing-element p{
+	margin-bottom: 0;
+}
+.ordered-items-hold{
+	margin-top: 2.083333333333333VW;
+    background: var(--white);
+	box-shadow: var(--baseBoxShaddow);
+}
 .listing-element ul{
 	font-size: 0;
 	line-height: 0;
@@ -1976,6 +2061,53 @@ a.dashboard-username span img{
 	left: auto;
 	bottom: auto;
 }
+
+
+.invoicesHolder{
+    position: relative;
+    border-bottom: 1px solid black;
+    padding-bottom: 1.404167VW;
+    margin-bottom: 1.404167VW;
+}
+
+.invoicesHolder h3{
+	color: black;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 24px;
+	margin-bottom: 1.404167VW;
+}
+.invoicesHolder .invoiceMonthsHolder{
+	display: flex;
+	flex-wrap: wrap;
+}
+.invoicesHolder .invoiceMonthsHolder .monthColumn{
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	padding: 0.6234vw 0;
+	width: 16.666%;
+	margin-bottom: 1.834vw;
+	min-height: 8.324vw;
+	text-align: center;
+}
+.monthColumn:nth-of-type(6), .monthColumn:last-of-type{
+	border-right: 1px solid black;
+}
+.monthColumn h4{
+	display: block;
+	color: black;
+	font-weight: bold;
+	margin-bottom: 0.62342vw;
+}
+.monthColumn p{
+	font-size: 16px;
+	line-height: 18px;
+	margin-bottom: 0.62342vw;
+	padding: 0 0.242vw;
+}
+
+   
 
 @media screen and (max-width:1490px){
 	.dropzonePreview .media-item{

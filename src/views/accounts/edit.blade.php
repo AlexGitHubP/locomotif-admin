@@ -17,6 +17,16 @@
 					Detalii
 				</a>
 			</li>
+            @if ($item->type=='designer')
+            <li>
+				<a href="" data-target="facturi">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.1 16">
+						<path id="Text-2" data-name="Text" d="M5.2,2H11a.75.75,0,0,1,.53.22l4.35,4.35a.75.75,0,0,1,.22.53v8.7A2.222,2.222,0,0,1,13.9,18H5.2A2.222,2.222,0,0,1,3,15.8V4.2A2.222,2.222,0,0,1,5.2,2Zm0,1.5a.721.721,0,0,0-.7.7V15.8a.721.721,0,0,0,.7.7h8.7a.721.721,0,0,0,.7-.7V7.85H11a.75.75,0,0,1-.75-.75V3.5Zm6.55,1.061L13.539,6.35H11.75ZM5.9,7.825a.75.75,0,0,1,.75-.75H8.1a.75.75,0,0,1,0,1.5H6.65A.75.75,0,0,1,5.9,7.825Zm.75,2.15a.75.75,0,1,0,0,1.5h5.8a.75.75,0,1,0,0-1.5Zm0,2.9a.75.75,0,0,0,0,1.5h5.8a.75.75,0,0,0,0-1.5Z" transform="translate(-3 -2)" fill="#6C7A87" fill-rule="evenodd"/>
+					</svg> 
+					Detalii facturi
+				</a>
+			</li>
+            @endif
             <li>
 				<a href="" data-target="imagini">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -102,7 +112,42 @@
                     <input class="general-btn" type="submit" value="Update">
                 </form>
             </div>
-			
+            @if ($item->type=='designer')
+            <div class="tab-pane" id="facturi">
+				<h2>Detalii facturi:</h2>
+                @foreach ($invoicesList as $key => $invoiceYear)
+                    <div class='invoicesHolder'>
+                        <h3>{{$invoiceYear->year}}</h3>
+                        <div class='invoiceMonthsHolder'>
+                            @foreach ($invoiceYear->months as $kk => $invoiceMonth)
+                                <div class='monthColumn m-{{$invoiceMonth->month}}'>
+                                    <h4>{{$invoiceMonth->month}}</h4>
+                                    @if (isset($invoiceMonth->invoice_status))
+                                        
+                                        <p><strong>Status factură:</strong> {{$invoiceMonth->invoice_status}}</p>    
+                                        <p><strong>Vezi aici factura:</strong> <a href='/invoices/{{$invoiceMonth->invoice}}' target='_blank'>factură</a></p>
+                                        <p>Factura trebuie să fie de <strong>{{$invoiceInfos['invoiceData']->amount_to_invoice}} RON</strong> NET.</p>
+                                        @if ($invoiceInfos['invoicesArePaid'] == true)
+                                            <p>Toate comenzile au fost incasate. Se poate face plata catre user. </p>
+                                        @endif
+                                        
+                                        <form action="/admin/accounts/sendPaymentToDesigner" method='POST' enctype='multipart/form-data' class='invoice-upload' id='uploadInvoice'>
+                                            @csrf
+                                            <input type="hidden" id='reseller_invoices_id' name='reseller_invoices_id' value='{{isset($invoiceInfos['invoiceData']->id) ? $invoiceInfos['invoiceData']->id : null}}'>
+                                            <input type="hidden" id='accountID' name='accountID' value='{{$item->id}}'>
+                                            
+                                            <input type="submit" value='Trimite bani spre designer'>
+                                        
+                                        </form>
+
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+			</div>
+            @endif
             <div class="tab-pane" id="imagini">
 				<h2>Imagini:</h2>
                 {!! $associatedMedia !!}

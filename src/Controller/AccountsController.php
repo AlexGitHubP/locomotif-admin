@@ -108,8 +108,19 @@ class AccountsController extends Controller
      */
     public function edit(Accounts $account)
     {
+        
         $associatedMedia = app(MediaController::class)->mediaAssociations($account->getTable(), $account->id);
-        return view('accounts::edit')->with('item', $account)->with('associatedMedia', $associatedMedia);
+
+        if($account->type=='designer'){
+            $invoicesList = Accounts::getInvoicesByYearMonth($account->id);
+            $invoiceInfos = Accounts::invoiceInfos($account->id);
+        }
+        
+        return view('accounts::edit')
+                    ->with('item', $account)
+                    ->with('associatedMedia', $associatedMedia)
+                    ->with(compact('invoicesList'))
+                    ->with(compact('invoiceInfos'));
     }
 
     /**
