@@ -50,4 +50,8 @@ class Users extends Model implements Authenticatable
         // Return the name of the remember token column in your 'users' table
         return 'remember_token';
     }
+    public function getAuthPasswordName()
+    {
+        // TODO: Implement getAuthPasswordName() method.
+    }
 }
