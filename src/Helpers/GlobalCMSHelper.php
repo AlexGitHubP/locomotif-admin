@@ -230,5 +230,10 @@ if (!function_exists('checkIfIsLastDayOfMonth')) {
         
     }
 }
+ if(!function_exists('checkIfCurrentMonthIsSame')){
+    function checkIfCurrentMonthIsSame($month){
+        return ($month === now()->format('M'));
+    }
+}
 
 ?>
