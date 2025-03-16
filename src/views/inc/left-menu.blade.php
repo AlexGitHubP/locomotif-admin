@@ -188,7 +188,7 @@
 			</li>
 
 			<li>
-				<a href="/admin/media">
+				<a href="/admin/portfolio">
 					<svg viewBox="0 0 16 16">
 						<g id="Grid">
 						  <path d="M16.5,12.5h-4v4h4Zm-4-1.5h4A1.5,1.5,0,0,1,18,12.5v4A1.5,1.5,0,0,1,16.5,18h-4A1.5,1.5,0,0,1,11,16.5v-4A1.5,1.5,0,0,1,12.5,11Z" transform="translate(-2 -2)" fill="#303D4D" fill-rule="evenodd"/>
